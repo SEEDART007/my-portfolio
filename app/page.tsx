@@ -19,6 +19,10 @@ import Image from 'next/image';
 import { WarpBackground } from '@/components/magicui/warp-background';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { Meteors } from '@/components/magicui/meteors';
+import { NumberTicker } from '@/components/magicui/number-ticker';
+import HeroVideoDialog from '@/components/magicui/hero-video-dialog';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
+import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,6 +69,7 @@ function App() {
       <AboutSection darkMode={darkMode} />
       <SkillsSection darkMode={darkMode} />
       <ProjectsSection darkMode={darkMode} />
+      <YoutubeSection darkMode={darkMode}/>
       <ContactSection darkMode={darkMode} />
       <Footer darkMode={darkMode} />
     </div>
@@ -227,7 +232,63 @@ const HeroSection = ({ darkMode }) => {
   );
 };
 
+const YoutubeSection = ({ darkMode }) => {
+  return (
+    <section
+      id="youtube"
+      className={`py-24 px-4 ${
+        darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
+          Reached{" "}
+          <span className="inline-block text-blue-600 dark:text-blue-400">
+            <NumberTicker
+              value={10000}
+              className="whitespace-pre-wrap text-5xl font-bold tracking-tight"
+            />{" "}
+            Views
+          </span>{" "}
+          Teaching Java OOPs!
+        </h2>
 
+        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-14 max-w-2xl mx-auto">
+          I simplify complex concepts. My Java OOPs series empowered 10,000+ learners to
+          understand Object-Oriented Programming from the ground up.
+        </p>
+
+        <div className="">
+          <div className="relative">
+      <HeroVideoDialog
+        className="block dark:hidden"
+        animationStyle="top-in-bottom-out"
+        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+        thumbnailAlt="Hero Video"
+      />
+            <HeroVideoDialog
+              className="hidden dark:block"
+              animationStyle="from-center"
+              videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+              thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+              thumbnailAlt="Hero Video"
+            />
+          </div>
+
+        </div>
+
+        <div className="mt-10">
+        
+          <InteractiveHoverButton>Subscribe</InteractiveHoverButton>
+          
+        </div>
+      </div>
+    </section>
+
+
+  )
+}
 const AboutSection = ({ darkMode }) => {
   return (
     
