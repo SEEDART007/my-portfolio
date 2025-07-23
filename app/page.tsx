@@ -502,10 +502,7 @@ const SkillsSection : React.FC<YoutubeSectionProps> = ({ darkMode }) => {
       <span>✔ Deployed on Render / Railway / Vercel</span>
     </AnimatedSpan>
 
-    <AnimatedSpan delay={5500} className="text-blue-500">
-      <span>🚀 Backend is live at:</span>
-      <span className="pl-2">https://api.yourdomain.com</span>
-    </AnimatedSpan>
+  
 
     <AnimatedSpan delay={6000} className="text-yellow-400">
       <span>🛠 Stack: Node.js · Express.js · MongoDB · JWT · REST · Docker</span>
