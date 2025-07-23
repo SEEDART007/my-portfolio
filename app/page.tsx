@@ -3,15 +3,19 @@
 import { AnimatedList } from '@/components/magicui/animated-list';
 import { Globe } from '@/components/magicui/globe';
 import mypic from './mypic.jpg'
+import dupamine from './dupamine.png'
 import { HyperText } from '@/components/magicui/hyper-text';
 import { IconCloud } from '@/components/magicui/icon-cloud';
 import { AnimatedSpan, Terminal } from '@/components/magicui/terminal';
+import imdb from './db.png'
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { TypingAnimation } from '@/components/magicui/typing-animation';
 import { WordRotate } from '@/components/magicui/word-rotate';
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 import { HiOutlineLightBulb } from 'react-icons/hi';
+import neuro from './neuro.png'
+import game from './game.png'
 // import { Globe } from './components/magicui/globe';
 import { MdWorkOutline, MdSchool, MdCode, MdDesignServices } from 'react-icons/md';
 import { Lens } from '@/components/magicui/lens';
@@ -23,6 +27,7 @@ import { NumberTicker } from '@/components/magicui/number-ticker';
 import HeroVideoDialog from '@/components/magicui/hero-video-dialog';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
+import { BorderBeam } from '@/components/magicui/border-beam';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -88,7 +93,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen, activeSection, darkMode, toggleDark
     <header className={`fixed w-full z-50 ${darkMode ? 'bg-gray-900' : 'bg-white'} shadow-md`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-          Portfolio
+          SeedArt
         </a>
         
         {/* Desktop Navigation */}
@@ -159,26 +164,29 @@ const Header = ({ isMenuOpen, setIsMenuOpen, activeSection, darkMode, toggleDark
 
 const HeroSection = ({ darkMode }) => {
   return (
-    
-    <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-28">
-     <Meteors number={30}/>
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-        <div className="md:w-1/2 mb-10 md:mb-0">
+    <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+      <Meteors number={30} />
+      <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-20">
+
+        {/* Text Content */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
           <div className={`text-sm font-semibold mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
             Hello, I'm
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <WordRotate words={["Siddhartha", "Aka SeedArt"]} />
-           
           </h1>
-          <TypingAnimation className="text-2xl md:text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-            Senior Frontend Developer
+
+          <TypingAnimation className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+           Backend Systems Engineer
           </TypingAnimation>
-          <TextAnimate animation="blurIn" as="h1" className={`text-lg mb-8 max-w-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            I create beautiful, responsive web applications with modern technologies. 
-            Passionate about clean code and intuitive user experiences.
+
+          <TextAnimate animation="blurIn" as="h1" className={`text-base sm:text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          While others see buttons and pages, I engineer the logic beneath — making sure every click tells the server exactly what to do.
           </TextAnimate>
-          <div className="flex flex-wrap gap-4">
+
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             <a 
               href="#contact" 
               className={`px-6 py-3 rounded-lg font-medium transition-all ${
@@ -189,6 +197,7 @@ const HeroSection = ({ darkMode }) => {
             >
               Contact Me
             </a>
+
             <a 
               href="#projects" 
               className={`px-6 py-3 rounded-lg font-medium border transition-all ${
@@ -197,38 +206,47 @@ const HeroSection = ({ darkMode }) => {
                   : 'border-gray-300 hover:bg-gray-100 text-gray-800'
               }`}
             >
+              <div>
+
               View Projects
+        
+              </div>
             </a>
           </div>
         </div>
-        
-        <div className="md:w-1/2 flex justify-center">
+
+        {/* Image Content */}
+        <div className="w-full lg:w-1/2 flex justify-center">
           <div className="relative">
-            <div className={`w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 ${
+            <div className={`relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 ${
               darkMode ? 'border-gray-700' : 'border-gray-200'
             }`}>
-      <Lens>
-      <div className="relative w-[400px] h-[400px] overflow-hidden rounded-xl">
-        <Image
-          src={mypic}
-          alt="Lens Demo"
-          fill
-          className="object-cover"
-        />
-      </div>
-    </Lens>
+              <Lens>
+                <div className="relative w-full h-full overflow-hidden rounded-xl">
+                  <Image
+                    src={mypic}
+                    alt="Lens Demo"
+                    
+                    height={400}
+                    width={400}
+                    className="object-cover"
+                  />
+                </div>
+              </Lens>
+            </div>
 
-            </div>
-            <div className={`absolute -bottom-4 -right-4 px-6 py-2 rounded-full font-medium ${
+            {/* <div className={`block -bottom-4 right-0 sm:right-4 px-6 py-2 rounded-full font-medium text-sm sm:text-base shadow-lg ${
               darkMode ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-800'
-            }`}>
+              }`}>
               5+ Years Experience
-            </div>
+              </div> */}
+          
+           
           </div>
         </div>
+
       </div>
     </section>
-   
   );
 };
 
@@ -236,61 +254,61 @@ const YoutubeSection = ({ darkMode }) => {
   return (
     <section
       id="youtube"
-      className={`py-24 px-4 ${
+      className={`py-16 md:py-24 px-4 ${
         darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
           Reached{" "}
           <span className="inline-block text-blue-600 dark:text-blue-400">
             <NumberTicker
               value={10000}
-              className="whitespace-pre-wrap text-5xl font-bold tracking-tight"
+              className="text-blue-600 whitespace-pre-wrap text-4xl sm:text-5xl font-bold tracking-tight"
             />{" "}
             Views
           </span>{" "}
           Teaching Java OOPs!
         </h2>
 
-        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-14 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
           I simplify complex concepts. My Java OOPs series empowered 10,000+ learners to
           understand Object-Oriented Programming from the ground up.
         </p>
 
-        <div className="">
-          <div className="relative">
-      <HeroVideoDialog
-        className="block dark:hidden"
-        animationStyle="top-in-bottom-out"
-        videoSrc="https://www.youtube.com/embed/vN4m3cz-q5w?si=JIobver04wyWwhDB
-"
-        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-        thumbnailAlt="Hero Video"
-      />
+        {/* Responsive video container */}
+        <div className="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden">
+          <div className="aspect-w-16 aspect-h-9">
+            {/* Light mode video */}
             <HeroVideoDialog
-              className="hidden dark:block"
+              className="block dark:hidden w-full h-full"
+              animationStyle="top-in-bottom-out"
+              videoSrc="https://www.youtube.com/embed/vN4m3cz-q5w?si=JIobver04wyWwhDB"
+              thumbnailSrc="https://img.youtube.com/vi/vN4m3cz-q5w/maxresdefault.jpg"
+              thumbnailAlt="Hero Video"
+            />
+            {/* Dark mode video */}
+            <HeroVideoDialog
+              className="hidden dark:block w-full h-full"
               animationStyle="from-center"
-              videoSrc="https://www.youtube.com/embed/vN4m3cz-q5w?si=JIobver04wyWwhDB
-"
-              thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+              videoSrc="https://www.youtube.com/embed/vN4m3cz-q5w?si=JIobver04wyWwhDB"
+              thumbnailSrc="https://img.youtube.com/vi/vN4m3cz-q5w/maxresdefault.jpg"
               thumbnailAlt="Hero Video"
             />
           </div>
-
         </div>
 
-        <div className="mt-10">
-        
-          <InteractiveHoverButton>Subscribe</InteractiveHoverButton>
-          
-        </div>
+        {/* Subscribe Button */}
+       <div className="mt-10 text-black">
+  <InteractiveHoverButton onClick={() => window.open('http://www.youtube.com/@SeedArt007', '_blank')}>
+    Subscribe
+  </InteractiveHoverButton>
+</div>
+
       </div>
     </section>
-
-
-  )
-}
+  );
+};
 const AboutSection = ({ darkMode }) => {
   return (
     
@@ -307,14 +325,10 @@ const AboutSection = ({ darkMode }) => {
           <div className="md:w-1/2">
             <h3 className="text-2xl font-bold mb-6">Who I Am</h3>
             <p className={`mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              I'm a passionate frontend developer with over 5 years of experience creating 
-              modern web applications. I specialize in React, Vue.js, and building responsive 
-              interfaces that delight users.
+           Backend Specialist Currently focused on backend development, building scalable APIs, and optimizing database performance 💻.
             </p>
             <p className={`mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              My approach combines technical expertise with a keen eye for design, ensuring 
-              that applications are not only functional but also visually appealing and 
-              user-friendly.
+              Passionate about crafting seamless user experiences, I’ve built full-stack applications where the frontend truly shines — blending responsive design, intuitive UI, and dynamic interactivity. With hands-on experience in React, Next.js, and modern design systems, I turn ideas into polished, user-friendly interfaces that leave a lasting impression.
             </p>
             
             <div className="grid grid-cols-2 gap-4">
@@ -324,7 +338,7 @@ const AboutSection = ({ darkMode }) => {
                 <MdWorkOutline className="text-2xl mr-3 text-blue-500" />
                 <div>
                   <div className="font-semibold">Experience</div>
-                  <div>5+ Years</div>
+                  <div>2+ Years</div>
                 </div>
               </div>
               
@@ -334,7 +348,7 @@ const AboutSection = ({ darkMode }) => {
                 <MdDesignServices className="text-2xl mr-3 text-blue-500" />
                 <div>
                   <div className="font-semibold">Specialize</div>
-                  <div>Frontend Dev</div>
+                  <div>Backend Dev</div>
                 </div>
               </div>
             </div>
@@ -354,10 +368,10 @@ const AboutSection = ({ darkMode }) => {
                   <div className={`w-0.5 h-full mx-auto ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">MSc Computer Science</h4>
-                  <p className={`mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Stanford University | 2015-2017</p>
+                  <h4 className="font-bold text-lg">B.Tech Computer Science</h4>
+                  <p className={`mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>KIIT University | 2023-2027</p>
                   <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
-                    Focused on human-computer interaction and web technologies. Graduated with honors.
+                    Focused on backend dev with specialized approach
                   </p>
                 </div>
               </div>
@@ -372,10 +386,10 @@ const AboutSection = ({ darkMode }) => {
                   <div className={`w-0.5 h-full mx-auto ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">Senior Frontend Developer</h4>
-                  <p className={`mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Tech Innovations Inc. | 2020-Present</p>
+                  <h4 className="font-bold text-lg">CTO | Founder</h4>
+                  <p className={`mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Pukaar | 2025-Present</p>
                   <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
-                    Lead development of customer-facing applications using React and modern web technologies.
+                    Empowering women through code – Pukaar is not just an app, it's a digital shield.
                   </p>
                 </div>
               </div>
@@ -389,11 +403,11 @@ const AboutSection = ({ darkMode }) => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">Frontend Developer</h4>
-                  <p className={`mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Digital Solutions Co. | 2017-2020</p>
-                  <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
-                    Developed responsive web applications and collaborated with designers on UI/UX.
-                  </p>
+                <h4 className="font-bold text-lg">Web Developer</h4>
+<p className={`mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Konnexions, KIIT Web Dev Society | 1st Year</p>
+<p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
+  Selected as member in my first year; collaborated on real-world web projects and enhanced my frontend development skills through team-based initiatives.
+</p>
                 </div>
               </div>
             </div>
@@ -407,11 +421,11 @@ const AboutSection = ({ darkMode }) => {
 
 const SkillsSection = ({ darkMode }) => {
   const slugs = [
-    "typescript", "javascript", "dart", "java", "react", "flutter", "android",
-    "html5", "css3", "nodedotjs", "express", "nextdotjs", "prisma", "amazonaws",
-    "postgresql", "firebase", "nginx", "vercel", "testinglibrary", "jest",
-    "cypress", "docker", "git", "jira", "github", "gitlab", "visualstudiocode",
-    "androidstudio", "sonarqube", "figma",
+    "typescript", "javascript", "java", "react", "android",
+    "html5", "css3", "express",
+     "firebase", "nginx", "vercel",
+     "docker", "git", "github", "gitlab", "visualstudiocode",
+    "androidstudio", "figma","postman","jwt","nextjs","nodejs","mongodb","redis","vite","c","tailwindcss"
   ];
 
   const images = slugs.map(
@@ -444,7 +458,7 @@ const SkillsSection = ({ darkMode }) => {
         {/* Right: Terminal Section */}
        <div className="w-full md:w-1/2 px-4">
   <Terminal>
-    <TypingAnimation>&gt; Initializing backend server...</TypingAnimation>
+    <TypingAnimation className='text-black'>&gt; Initializing backend server...</TypingAnimation>
 
     <AnimatedSpan delay={1000} className="text-green-500">
       <span>✔ Node.js runtime loaded</span>
@@ -501,31 +515,44 @@ const SkillsSection = ({ darkMode }) => {
 
 const ProjectsSection = ({ darkMode }) => {
   const projects = [
-    {
-      title: 'E-commerce Dashboard',
-      description: 'A comprehensive dashboard for e-commerce analytics with real-time data visualization.',
-      technologies: ['React', 'TypeScript', 'D3.js', 'Tailwind CSS'],
-      category: 'web'
-    },
-    {
-      title: 'Health & Fitness App',
-      description: 'Mobile-first application for tracking workouts, nutrition, and health metrics.',
-      technologies: ['Vue.js', 'Firebase', 'PWA', 'Chart.js'],
-      category: 'mobile'
-    },
-    {
-      title: 'Task Management System',
-      description: 'Collaborative project management tool with drag-and-drop interface and real-time updates.',
-      technologies: ['React', 'Node.js', 'WebSockets', 'MongoDB'],
-      category: 'web'
-    },
-    {
-      title: 'Travel Planning Platform',
-      description: 'Interactive platform for creating and sharing travel itineraries with map integration.',
-      technologies: ['Next.js', 'Mapbox', 'Stripe', 'PostgreSQL'],
-      category: 'web'
-    }
-  ];
+  {
+    title: 'Dupamin',
+    description: 'This interactive tool lets you explore emojis in a fun way.',
+    technologies: ['React', 'Javascript'],
+    category: 'npm package',
+    image: dupamine,
+    liveUrl: 'https://dupamin-website.vercel.app/',
+    codeUrl: 'https://github.com/SEEDART007/dupamin'
+  },
+  {
+    title: 'NeuroBeats',
+    description: 'an AI-powered emotion-based music recommender. Just type how you feel, and NeuroBeats will analyze your emotion and generate a custom playlist that matches your mood.',
+    technologies: ['AI', 'Nextjs', 'Tailwind Css'],
+    category: 'Web',
+    image: neuro,
+    liveUrl: 'https://neuro-beats.vercel.app/',
+    codeUrl: 'https://github.com/SEEDART007/NeuroBeats'
+  },
+   {
+    title: 'Exam Mania',
+    description: 'A game using kaplay lib to dodge the exams, chase your dreams! Navigate through obstacles and keep your goals alive!',
+    technologies: ['Javascript', 'Kaplayjs'],
+    category: 'Web',
+    image: game,
+    liveUrl: 'https://seedart007.itch.io/exam-mania-india',
+    codeUrl: 'https://github.com/SEEDART007/kaplay-game-js'
+  },
+   {
+    title: 'IMDB',
+    description: 'A IMDB clone which will find real time movies for you.',
+    technologies: ['Nextjs', 'Tailwind CSS'],
+    category: 'Web',
+    image: imdb,
+    liveUrl: 'https://im-db-clone-kexsiidr7-seedarts-projects.vercel.app/',
+    codeUrl: 'https://github.com/SEEDART007/IMDb-Clone'
+  },
+];
+
 
   return (
     <section id="projects" className="py-20">
@@ -534,42 +561,58 @@ const ProjectsSection = ({ darkMode }) => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
           <div className={`w-20 h-1 mx-auto ${darkMode ? 'bg-blue-500' : 'bg-blue-600'}`}></div>
           <p className={`mt-6 max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Here are some of my recent projects. Each project reflects my passion for creating 
-            intuitive, high-performance web applications.
+            These are some of my featured works that reflect my dedication to crafting impactful digital products.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 hover:-translate-y-2 ${
                 darkMode ? 'bg-gray-800' : 'bg-white'
               }`}
             >
-              <div className="h-48 bg-gray-200 border-2 border-dashed w-full" />
+              {/* Project Image */}
+      <Image
+  src={project.image}
+  alt={project.title}
+  width={600}
+  height={300}
+  className="w-full h-52 object-cover rounded-t-2xl"
+/>
+
               <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
+                {/* Title & Category */}
+                <div className="flex justify-between items-center mb-4">
                   <h3 className="text-xl font-bold">{project.title}</h3>
-                  <span className={`text-xs px-2 py-1 rounded-full ${
-                    project.category === 'mobile' 
-                      ? darkMode 
-                        ? 'bg-purple-900 text-purple-200' 
+                  <span className={`text-xs px-2 py-1 rounded-full capitalize ${
+                    project.category === 'mobile'
+                      ? darkMode
+                        ? 'bg-purple-900 text-purple-200'
                         : 'bg-purple-100 text-purple-800'
-                      : darkMode 
-                        ? 'bg-blue-900 text-blue-200' 
+                      : project.category === 'npm package'
+                      ? darkMode
+                        ? 'bg-green-900 text-green-200'
+                        : 'bg-green-100 text-green-800'
+                      : darkMode
+                        ? 'bg-blue-900 text-blue-200'
                         : 'bg-blue-100 text-blue-800'
                   }`}>
-                    {project.category === 'mobile' ? 'Mobile' : 'Web'}
+                    {project.category}
                   </span>
                 </div>
+
+                {/* Description */}
                 <p className={`mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {project.description}
                 </p>
+
+                {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex} 
+                    <span
+                      key={techIndex}
                       className={`text-xs px-3 py-1 rounded-full ${
                         darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
                       }`}
@@ -578,21 +621,33 @@ const ProjectsSection = ({ darkMode }) => {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-3">
-                  <button className={`px-4 py-2 rounded-lg font-medium ${
-                    darkMode 
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                      : 'bg-blue-600 hover:bg-blue-700 text-white'
-                  }`}>
-                    View Project
-                  </button>
-                  <button className={`px-4 py-2 rounded-lg font-medium border ${
-                    darkMode 
-                      ? 'border-gray-700 hover:bg-gray-700 text-white' 
-                      : 'border-gray-300 hover:bg-gray-100 text-gray-800'
-                  }`}>
-                    Source Code
-                  </button>
+
+                {/* Links */}
+                <div className="flex gap-3 flex-wrap">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  {project.codeUrl && (
+                    <a
+                      href={project.codeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-4 py-2 rounded-lg font-medium border transition-colors ${
+                        darkMode
+                          ? 'border-gray-700 hover:bg-gray-700 text-white'
+                          : 'border-gray-300 hover:bg-gray-100 text-gray-800'
+                      }`}
+                    >
+                      Source Code
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -602,6 +657,7 @@ const ProjectsSection = ({ darkMode }) => {
     </section>
   );
 };
+
 
 const ContactSection = ({ darkMode }) => {
   return (
@@ -640,30 +696,7 @@ const ContactSection = ({ darkMode }) => {
 
               <div className="space-y-6">
                 {/* Portfolio */}
-                <div className="flex items-start">
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
-                      darkMode ? "bg-blue-900" : "bg-blue-100"
-                    }`}
-                  >
-                    
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Portfolio</h4>
-                    <a
-                      href="https://alexportfolio.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${
-                        darkMode
-                          ? "text-blue-400 hover:text-blue-300"
-                          : "text-blue-600 hover:text-blue-800"
-                      }`}
-                    >
-                      alexportfolio.com
-                    </a>
-                  </div>
-                </div>
+              
 
                 {/* LinkedIn */}
                 <div className="flex items-start">
@@ -677,7 +710,7 @@ const ContactSection = ({ darkMode }) => {
                   <div>
                     <h4 className="font-bold text-lg mb-1">LinkedIn</h4>
                     <a
-                      href="https://linkedin.com/in/alexjohnson"
+                      href="https://linkedin.com/in/siddhartha-chakraborty-680a58281"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${
@@ -686,7 +719,7 @@ const ContactSection = ({ darkMode }) => {
                           : "text-blue-600 hover:text-blue-800"
                       }`}
                     >
-                      linkedin.com/in/alexjohnson
+                      LinkedIn
                     </a>
                   </div>
                 </div>
@@ -703,7 +736,7 @@ const ContactSection = ({ darkMode }) => {
                   <div>
                     <h4 className="font-bold text-lg mb-1">GitHub</h4>
                     <a
-                      href="https://github.com/alexjohnson"
+                      href="https://github.com/SEEDART007"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${
@@ -712,36 +745,11 @@ const ContactSection = ({ darkMode }) => {
                           : "text-blue-600 hover:text-blue-800"
                       }`}
                     >
-                      github.com/alexjohnson
+                      GitHub
                     </a>
                   </div>
                 </div>
 
-                {/* Twitter */}
-                <div className="flex items-start">
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
-                      darkMode ? "bg-blue-900" : "bg-blue-100"
-                    }`}
-                  >
-                    <FaTwitter className="text-xl text-blue-500" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Twitter</h4>
-                    <a
-                      href="https://twitter.com/alex_dev"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${
-                        darkMode
-                          ? "text-blue-400 hover:text-blue-300"
-                          : "text-blue-600 hover:text-blue-800"
-                      }`}
-                    >
-                      @alex_dev
-                    </a>
-                  </div>
-                </div>
               </div>
 
               {/* Location */}
@@ -752,9 +760,9 @@ const ContactSection = ({ darkMode }) => {
               >
                 <h4 className="font-bold text-lg mb-4">Location</h4>
                 <p className={darkMode ? "text-gray-300" : "text-gray-600"}>
-                  San Francisco, California
+                  Bhubaneshwar, India
                   <br />
-                  Available for remote work & freelance projects
+                  Available for cool projects & futuristic ideas
                 </p>
               </div>
             </div>
@@ -774,61 +782,27 @@ const ContactSection = ({ darkMode }) => {
 
 const Footer = ({ darkMode }) => {
   return (
-    <footer className={`py-12 ${darkMode ? 'bg-gray-900' : 'bg-gray-800'} text-white`}>
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Portfolio
-            </div>
-            <p className="mt-2 text-gray-400">
-              Creating beautiful digital experiences
-            </p>
-          </div>
-          
-          <div className="flex space-x-6">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaGithub className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaLinkedin className="w-6 h-6" />
-            </a>
-            <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaTwitter className="w-6 h-6" />
-            </a>
-            <a 
-              href="mailto:contact@example.com" 
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <FaEnvelope className="w-6 h-6" />
-            </a>
-          </div>
+    <footer className={`py-6 ${darkMode ? 'bg-gray-900' : 'bg-gray-800'} text-white`}>
+      <div className="container mx-auto px-4 text-center">
+        <div className="mb-4 text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          SeedArt's World
         </div>
-        
-        <div className={`mt-12 pt-8 text-center text-gray-400 border-t ${
-          darkMode ? 'border-gray-800' : 'border-gray-700'
-        }`}>
-          <p>© {new Date().getFullYear()} Alex Johnson. All rights reserved.</p>
-          <p className="mt-2">Designed and built with ❤️ using React & Tailwind CSS</p>
+
+        <div className="flex justify-center space-x-5 mb-4">
+          <a href="https://github.com/SEEDART007" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <FaGithub className="w-5 h-5" />
+          </a>
+          <a href="https://linkedin.com/in/siddhartha-chakraborty-680a58281" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <FaLinkedin className="w-5 h-5" />
+          </a>
+         
+          <a href="mailto:dashranger60@gmail.com" className="text-gray-400 hover:text-white">
+            <FaEnvelope className="w-5 h-5" />
+          </a>
         </div>
+
       </div>
     </footer>
   );
 };
-
 export default App;
