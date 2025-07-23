@@ -1,10 +1,7 @@
-// src/App.js
 'use client'
-import { AnimatedList } from '@/components/magicui/animated-list';
 import { Globe } from '@/components/magicui/globe';
 import mypic from './mypic.jpg'
 import dupamine from './dupamine.png'
-import { HyperText } from '@/components/magicui/hyper-text';
 import { IconCloud } from '@/components/magicui/icon-cloud';
 import { AnimatedSpan, Terminal } from '@/components/magicui/terminal';
 import imdb from './db.png'
@@ -16,19 +13,13 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaBars, FaTimes } from 're
 import { HiOutlineLightBulb } from 'react-icons/hi';
 import neuro from './neuro.png'
 import game from './game.png'
-// import { Globe } from './components/magicui/globe';
 import { MdWorkOutline, MdSchool, MdCode, MdDesignServices } from 'react-icons/md';
 import { Lens } from '@/components/magicui/lens';
 import Image from 'next/image';
-import { WarpBackground } from '@/components/magicui/warp-background';
-import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { Meteors } from '@/components/magicui/meteors';
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import HeroVideoDialog from '@/components/magicui/hero-video-dialog';
-import { RainbowButton } from '@/components/magicui/rainbow-button';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
-import { BorderBeam } from '@/components/magicui/border-beam';
-
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -322,9 +313,7 @@ const YoutubeSection: React.FC<YoutubeSectionProps> = ({ darkMode }) => {
     </section>
   );
 };
-interface AboutSection{
-  darkMode:boolean
-}
+
 const AboutSection: React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   return (
     
@@ -434,9 +423,7 @@ const AboutSection: React.FC<YoutubeSectionProps> = ({ darkMode }) => {
     
   );
 };
-interface SkillsSection{
-  darkMode:boolean
-}
+
 
 const SkillsSection : React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   const slugs = [
@@ -531,9 +518,7 @@ const SkillsSection : React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   );
 };
 
-interface ProjectsSection{
-  darkMode:boolean
-}
+
 const ProjectsSection : React.FC<YoutubeSectionProps> =({ darkMode }) => {
   const projects = [
   {
