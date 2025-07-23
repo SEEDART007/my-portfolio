@@ -80,14 +80,22 @@ function App() {
     </div>
   );
 }
+interface HeaderProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  activeSection: string;
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+}
 
-const Header = ({ isMenuOpen, setIsMenuOpen, activeSection, darkMode, toggleDarkMode }) => {
+const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, activeSection, darkMode, toggleDarkMode }) => {
   const navLinks = [
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' },
   ];
+
 
   return (
     <header className={`fixed w-full z-50 ${darkMode ? 'bg-gray-900' : 'bg-white'} shadow-md`}>
@@ -161,8 +169,11 @@ const Header = ({ isMenuOpen, setIsMenuOpen, activeSection, darkMode, toggleDark
     </header>
   );
 };
+interface HeroSectionProps {
+  darkMode: boolean;
+}
 
-const HeroSection = ({ darkMode }) => {
+const HeroSection: React.FC<HeroSectionProps> =({ darkMode }) => {
   return (
     <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
       <Meteors number={30} />
@@ -249,8 +260,10 @@ const HeroSection = ({ darkMode }) => {
     </section>
   );
 };
-
-const YoutubeSection = ({ darkMode }) => {
+interface YoutubeSectionProps {
+  darkMode: boolean;
+}
+const YoutubeSection: React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   return (
     <section
       id="youtube"
@@ -309,7 +322,10 @@ const YoutubeSection = ({ darkMode }) => {
     </section>
   );
 };
-const AboutSection = ({ darkMode }) => {
+interface AboutSection{
+  darkMode:boolean
+}
+const AboutSection: React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   return (
     
     
@@ -418,8 +434,11 @@ const AboutSection = ({ darkMode }) => {
     
   );
 };
+interface SkillsSection{
+  darkMode:boolean
+}
 
-const SkillsSection = ({ darkMode }) => {
+const SkillsSection : React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   const slugs = [
     "typescript", "javascript", "java", "react", "android",
     "html5", "css3", "express",
@@ -512,8 +531,10 @@ const SkillsSection = ({ darkMode }) => {
   );
 };
 
-
-const ProjectsSection = ({ darkMode }) => {
+interface ProjectsSection{
+  darkMode:boolean
+}
+const ProjectsSection : React.FC<YoutubeSectionProps> =({ darkMode }) => {
   const projects = [
   {
     title: 'Dupamin',
@@ -657,9 +678,11 @@ const ProjectsSection = ({ darkMode }) => {
     </section>
   );
 };
+interface ContactSection{
+  darkMode:boolean
+}
 
-
-const ContactSection = ({ darkMode }) => {
+const ContactSection : React.FC<ContactSection> =({ darkMode }) => {
   return (
     <section
       id="contact"
@@ -780,7 +803,7 @@ const ContactSection = ({ darkMode }) => {
   );
 };
 
-const Footer = ({ darkMode }) => {
+const Footer : React.FC<YoutubeSectionProps> = ({ darkMode }) => {
   return (
     <footer className={`py-6 ${darkMode ? 'bg-gray-900' : 'bg-gray-800'} text-white`}>
       <div className="container mx-auto px-4 text-center">
