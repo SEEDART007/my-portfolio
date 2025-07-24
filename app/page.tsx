@@ -1,6 +1,6 @@
 'use client'
 import { Globe } from '@/components/magicui/globe';
-import mypic from './mypic.jpg'
+import mypic from './mypic2.jpg'
 import dupamine from './dupamine.png'
 import { IconCloud } from '@/components/magicui/icon-cloud';
 import { AnimatedSpan, Terminal } from '@/components/magicui/terminal';
